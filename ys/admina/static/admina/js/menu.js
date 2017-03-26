@@ -20,17 +20,17 @@ function navList(id) {
     $obj.find("h4").click(function () {
         var $div = $(this).siblings(".list-item");
         if ($(this).parent().hasClass("selected")) {
-            $div.slideUp(600);
+            $div.slideUp(200);
             $(this).parent().removeClass("selected");
         }
         if ($div.is(":hidden")) {
-            $("#nav_dot li").find(".list-item").slideUp(600);
+            $("#nav_dot li").find(".list-item").slideUp(200);
             $("#nav_dot li").removeClass("selected");
             $(this).parent().addClass("selected");
-            $div.slideDown(600);
+            $div.slideDown(200);
 
         } else {
-            $div.slideUp(600);
+            $div.slideUp(200);
         }
     });
 }

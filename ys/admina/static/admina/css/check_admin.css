@@ -1,0 +1,38 @@
+tr{
+    text-align: center;
+}
+
+td{
+    width: 100px;
+}
+
+.name, .is_use{
+    width: 100px;
+}
+
+.department{
+    width: 400px;
+}
+
+.username {
+width: 150px;
+}
+
+.password{
+    width: 150px;
+}
+
+.function{
+    width: 200px;
+}
+
+select{
+    margin-left: 3%;
+    width: 19%;
+    font-size: 16px;
+}
+
+.cloumn{
+    font-size: 16px;
+    margin-bottom: 1%;
+}

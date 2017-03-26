@@ -1,0 +1,73 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理系统</title>
+    <link type="text/css" rel="stylesheet" href="/static/admina/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/static/admina/css/add_news.css">
+    <script type="text/javascript" src="/static/admina/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/static/admina/js/menu.js"></script>
+</head>
+<body>
+{% include "admina/include/include.html" %}
+
+	<div class="m-right">
+		<div class="right-nav">
+				<ul>
+                    <a href="/admin"><li><img src="/static/admina/images/home.png" style="margin-bottom: 88%;"></li></a>
+                    <li style="margin-left:25px;">您当前的位置：</li>
+                    <li><span href="#">发布新闻</span></li>
+                    <li>></li>
+                    <li><a href="#">中心动态</a></li>
+                </ul>
+		</div>
+		<div class="main">
+            <div class="center">
+                <div class="column">
+                    <span>所属栏目：</span>
+                    <span class="dongtai">中心动态</span>
+                </div>
+
+                <div class="select">
+                    <span>二级栏目：</span>
+                    <select>
+                        <option>请选择</option>
+                    </select>
+                </div>
+
+                <div class="title">
+                    <span>文章标题：</span>
+                    <input type="text">
+                </div>
+
+                <div class="content">
+                    <span>文章内容：</span>
+                    <textarea cols="23" rows="4"></textarea>
+                </div>
+
+                <div class="file">
+                    <span>上传图片：</span>
+                    <input type="file">
+                </div>
+
+                <div class="is_stick">
+                <span>是否置顶：</span>
+                    <div>
+                        <input type="radio" name="is_stick" value="0" class="is_stick1">不置顶
+                        <input type="radio" name="is_stick" value="1">置顶
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <input type="button" value="返回">
+                    <input type="button" value="暂存">
+                    <input type="button" value="发布">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="bottom"></div>
+<script>navList(12);</script>
+</body>
+</html>

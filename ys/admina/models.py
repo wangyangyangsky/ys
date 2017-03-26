@@ -42,6 +42,7 @@ class News(models.Model):
 #5、管理员
 class Administrators(models.Model):
     username = models.CharField(max_length=20, primary_key=True)
+    name = models.CharField(max_length=50, null=True)
     password = models.CharField(max_length=20)
     departmentId = models.ForeignKey(Department, db_column="departmentId")
     level = models.IntegerField(null=True)

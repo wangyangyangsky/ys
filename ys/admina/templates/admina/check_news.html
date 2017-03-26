@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理系统</title>
+    <link type="text/css" rel="stylesheet" href="/static/admina/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/static/admina/css/check_news.css">
+    <script type="text/javascript" src="/static/admina/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/static/admina/js/menu.js"></script>
+</head>
+<body>
+{% include "admina/include/include.html" %}
+
+	<div class="m-right">
+		<div class="right-nav">
+				<ul>
+                    <a href="/admin"><li><img src="/static/admina/images/home.png" style="margin-bottom: 88%;"></li></a>
+                    <li style="margin-left:25px;">您当前的位置：</li>
+                    <li><span href="#">查看新闻</span></li>
+                </ul>
+		</div>
+		<div class="main">
+            <div class="cloumn">
+                <span>所属栏目：</span>
+                <select>
+                    <option value="0">所有</option>
+                </select>
+            </div>
+            <div class="table">
+                <table border="1" cellspacing="0">
+                    <tr>
+                        <td class="father">父栏目</td>
+                        <td class="son">子栏目</td>
+                        <td class="title">新闻标题</td>
+                        <td class="date">发布时间</td>
+                        <td class="is_stick">是否置顶</td>
+                        <td class="function">操作</td>
+                    </tr>
+                </table>
+            </div>
+		</div>
+	</div>
+
+<div class="bottom"></div>
+<script>navList(12);</script>
+</body>
+</html>
