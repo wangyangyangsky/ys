@@ -106,18 +106,6 @@ function  submitB(){
         var f = sendParam();
         return f;
     }
-}
 
-$("input[type='button']").click(function () {
-    $.post("", {
-        "username": $("input[name='username']").val(),
-        "password": $("input[name='password']").val(),
-    }, function (data) {
-        if(data == 0){
-            alert("用户名不存在");
-        }else if (data == 1){
-            alert("用户名密码错误")
-        }
-    });
-});
+}
 
