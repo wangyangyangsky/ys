@@ -50,3 +50,9 @@ def login(req):
 @csrf_exempt
 def create_admin(req):
     pass
+
+@csrf_exempt
+def col_page1(req):
+    return render_to_response("admina/col_page2.html")
+
+

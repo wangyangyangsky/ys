@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^add_admin/$', views.add_admin),
     url(r'^check_admin/$', views.check_admin),
     url(r'^create_admin/$', views.create_admin),
+    url(r'^page1$',views.col_page1),
 ]
