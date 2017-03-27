@@ -69,55 +69,59 @@ function checkUser2(){
     }
 }
 
-function  submitB(){
-
-    if(!user.value){
-        user_pass.style.fontSize = "13px";
-        user_pass.style.width="31%";
-        user_pass.style.height="2em";
-        user_pass.style.textAlign="center";
-        user_pass.style.lineHeight="2em";
-        user_pass.innerHTML = '请填写您的用户名。';
-        user.focus();
-        return false;
-    }
-    if(!pwd.value){
-        pwd_pass.style.fontSize = "13px";
-        pwd_pass.style.width="31%";
-        pwd_pass.style.height="2em";
-        pwd_pass.style.textAlign="center";
-        pwd_pass.style.lineHeight="2em";
-        pwd_pass.innerHTML = '请填写您的用户密码。';
-        pwd.focus();
-        return false;
-    }
-
-    if(!surePwd_pass.value){
-        surePwd_pass.style.fontSize = "13px";
-        surePwd_pass.style.width="31%";
-        surePwd_pass.style.height="2em";
-        surePwd_pass.style.textAlign="center";
-        surePwd_pass.style.lineHeight="2em";
-        surePwd_pass.innerHTML = '请填写您的登录验证。';
-        surePwd_pass.focus();
-        return false;
-    }
-    else{
-        var f = sendParam();
-        return f;
-    }
-}
+// function  submitB(){
+//
+//     if(!user.value){
+//         user_pass.style.fontSize = "13px";
+//         user_pass.style.width="31%";
+//         user_pass.style.height="2em";
+//         user_pass.style.textAlign="center";
+//         user_pass.style.lineHeight="2em";
+//         user_pass.innerHTML = '请填写您的用户名。';
+//         user.focus();
+//         return false;
+//     }
+//     if(!pwd.value){
+//         pwd_pass.style.fontSize = "13px";
+//         pwd_pass.style.width="31%";
+//         pwd_pass.style.height="2em";
+//         pwd_pass.style.textAlign="center";
+//         pwd_pass.style.lineHeight="2em";
+//         pwd_pass.innerHTML = '请填写您的用户密码。';
+//         pwd.focus();
+//         return false;
+//     }
+//
+//     if(!surePwd_pass.value){
+//         surePwd_pass.style.fontSize = "13px";
+//         surePwd_pass.style.width="31%";
+//         surePwd_pass.style.height="2em";
+//         surePwd_pass.style.textAlign="center";
+//         surePwd_pass.style.lineHeight="2em";
+//         surePwd_pass.innerHTML = '请填写您的登录验证。';
+//         surePwd_pass.focus();
+//         return false;
+//     }
+//     else{
+//         var f = sendParam();
+//         return f;
+//     }
+// }
 
 $("input[type='button']").click(function () {
-    $.post("", {
-        "username": $("input[name='username']").val(),
-        "password": $("input[name='password']").val(),
-    }, function (data) {
-        if(data == 0){
-            alert("用户名不存在");
-        }else if (data == 1){
-            alert("用户名密码错误")
-        }
-    });
+    if($("#user").val() != "" && $("#pwd").val() != ""){
+        $.post("", {
+            "username": $("input[name='username']").val(),
+            "password": $("input[name='password']").val(),
+        }, function (data) {
+            if(data == 0){
+                alert("用户名不存在");
+            }else if (data == 1){
+                alert("用户名密码错误")
+            }else if(data == 2){
+                window.location.href = "/admin/index"
+            }
+        });
+    }
 });
 

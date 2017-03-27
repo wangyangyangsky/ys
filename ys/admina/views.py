@@ -8,6 +8,10 @@ from django.views.decorators.csrf import csrf_exempt
 from admina import models
 
 @csrf_exempt
+def index(req):
+    return render_to_response("admina/index.html")
+
+@csrf_exempt
 def img(req):
     '''
     返回添加图片界面
@@ -24,10 +28,6 @@ def img_form(req):
     :return: 
     '''
     return render_to_response("admina/img_form.html")
-
-@csrf_exempt
-def index(req):
-    return render_to_response("admina/index.html")
 
 @csrf_exempt
 def add_news(req):
@@ -96,8 +96,8 @@ def login(req):
         administrators = models.Administrators.objects.filter(username=username)
         if administrators.count() == 0:
             return HttpResponse(0)
-        elif administrators.password == password:
-            return render_to_response("admina/index.html")
+        elif administrators[0].password == password:
+            return HttpResponse(2)
         else:
             return HttpResponse(1)
     else:
@@ -110,8 +110,28 @@ def create_admin(req):
     :param req: 
     :return: 
     '''
-    pass
-
+    if req.method == "POST":
+        username = req.POST["username"]
+        administrators = models.Administrators.objects.filter(username=username)
+        if administrators.count() == 0:
+            name = req.POST["name"]
+            password = req.POST["password"]
+            department = req.POST["department"]
+            departments = models.Department.objects.filter(name=department)
+            if departments.count() == 0:
+                depart = models.Department(name=department).save()
+                admin = models.Administrators(
+                    username=username, name=name, password=password, departmentId=depart.departmentId
+                ).save()
+            else:
+                admin = models.Administrators(
+                    username=username, name=name, password=password, departmentId_id=departments[0].departmentId
+                ).save()
+            return HttpResponse(1)
+        else:
+            return HttpResponse(0)
+    else:
+        return render_to_response("系统错误！！！！")
 
 
 
