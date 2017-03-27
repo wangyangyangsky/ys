@@ -1,0 +1,67 @@
+.center{
+    margin-left: 29%;
+    font-size:16px;
+}
+
+.column{
+    margin-bottom: 2%;
+}
+
+.select{
+    margin-bottom: 2%;
+}
+
+.file{
+    margin-bottom: 2%;
+}
+
+.title{
+    margin-bottom: 2%;
+}
+
+.content{
+    margin-bottom: 2%;
+}
+
+.is_stick{
+    margin-bottom: 2%;
+}
+
+.dongtai{
+    margin-left: 4%;
+}
+
+select{
+    margin-left: 4%;
+    width: 19%;
+    font-size: 16px;
+}
+
+input[type=file]{
+    margin-left: 4%;
+}
+
+.is_stick div{
+    display: inline;
+    margin-left: 4%;
+}
+
+.footer{
+    margin-top: 3%;
+}
+
+input[type=button]{
+    font-size: 16px;
+    margin-left: 2%;
+}
+
+input[type=text]{
+    text-indent: 10px;
+    margin-left: 4%;
+    width: 19%;
+    font-size: 16px;
+}
+
+textarea{
+    text-indent: 10px;
+}
