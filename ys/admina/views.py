@@ -1,4 +1,5 @@
-# -*-coding: utf-8-*-
+#-*-coding: utf-8-*-
+import json
 from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
 
@@ -133,5 +134,29 @@ def create_admin(req):
     else:
         return render_to_response("系统错误！！！！")
 
+@csrf_exempt
+def inspect_admin(req):
+    '''
+    查看管理员
+    :param req: 
+    :return: 
+    '''
+    Administrators = models.Administrators.objects.all()
+    list = []
+    for obj in Administrators:
+        department = models.Department.objects.filter(departmentId=obj.departmentId_id)
+        infor = {
+            "name": obj.name, "department": department[0].name,
+            "username": obj.username, "password": obj.password, "is_use": obj.is_use
+        }
+        list.append(infor)
+    return HttpResponse(json.dumps(list))
 
-
+@csrf_exempt
+def create_column(req):
+    '''
+    添加栏目
+    :param req:
+    :return:
+    '''
+    pass

@@ -46,4 +46,5 @@ class Administrators(models.Model):
     password = models.CharField(max_length=20)
     departmentId = models.ForeignKey(Department, db_column="departmentId")
     level = models.IntegerField(null=True)
+    is_use = models.BooleanField(default=True)
 
