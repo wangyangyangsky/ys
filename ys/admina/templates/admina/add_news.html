@@ -18,14 +18,14 @@
                     <li style="margin-left:25px;">您当前的位置：</li>
                     <li><span href="#">发布新闻</span></li>
                     <li>></li>
-                    <li><a href="#">中心动态</a></li>
+                    <li><a href="#">{{ name }}</a></li>
                 </ul>
 		</div>
 		<div class="main">
             <div class="center">
                 <div class="column">
                     <span>所属栏目：</span>
-                    <span class="dongtai">中心动态</span>
+                    <span class="dongtai" value="{{ columnId }}">{{ name }}</span>
                 </div>
 
                 <div class="select">
@@ -68,6 +68,8 @@
     </div>
 
 <div class="bottom"></div>
+<script type="text/javascript" src="/static/admina/login/js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="/static/admina/js/include.js"></script>
 <script>navList(12);</script>
 </body>
 </html>

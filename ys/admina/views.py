@@ -31,15 +31,6 @@ def img_form(req):
     return render_to_response("admina/img_form.html")
 
 @csrf_exempt
-def add_news(req):
-    '''
-    返回添加新闻界面
-    :param req: 
-    :return: 
-    '''
-    return render_to_response("admina/add_news.html")
-
-@csrf_exempt
 def check_news(req):
     '''
     返回查看新闻界面
@@ -160,3 +151,125 @@ def create_column(req):
     :return:
     '''
     pass
+
+@csrf_exempt
+def savepciture(img):
+    '''
+    上传图片  用于封装
+    :param req: 
+    :return: 
+    '''
+    url = "picture/" + str(img)
+    image = models.Image(img=img, url=url)
+    image.save()
+    return image
+
+@csrf_exempt
+def create_column(req):
+    '''
+    创建栏目
+    :param req: 
+    :return: 
+    '''
+    if req.method == "POST":
+        name = req.POST["name"]
+        Columns = models.Column.objects.filter(name=name)
+        if Columns.count() == 0:
+            level = req.POST["level"]
+            parentColum = req.POST["parentColum"]
+            sort = req.POST["sort"]
+            is_use = req.POST["is_use"]
+            if is_use == 1:
+                is_use = True
+            elif is_use == 0:
+                is_use = False
+            img = req.FILES["image"]
+            image = savepciture(img)
+            Column = models.Column(
+                parentColum=parentColum, sort=sort, level=level, name=name,
+                is_use=is_use, imageId_id=image.imageId
+            ).save();
+            return HttpResponse(1)
+        else:
+            return HttpResponse(0)
+
+@csrf_exempt
+def inspect_column(req):
+    '''
+    查询栏目信息
+    :param req: 
+    :return: 
+    '''
+    columns = models.Column.objects.all()
+    list = []
+    for obj in columns:
+        infor = {
+            "columnId": obj.columnId, "parentColum": obj.parentColum, "sort": obj.sort,
+            "level": obj.sort, "name": obj.name, "is_use": obj.is_use
+        }
+        list.append(infor)
+    return HttpResponse(json.dumps(list))
+
+@csrf_exempt
+def delete(req):
+    '''
+    删除按钮
+    :param req: 
+    :return: 
+    '''
+    Identification = req.POST["Identification"]
+    if Identification == "3":
+        imageId = req.POST["imageId"]
+        img = models.Image.objects.filter(imageId=imageId)[0].delete()
+        return HttpResponse(1)
+    elif Identification == "2":
+        username = req.POST["username"]
+        models.Administrators.objects.filter(username=username)[0].delete()
+        return HttpResponse(1)
+    elif Identification == "1":
+        columnId = req.POST["columnId"]
+        column = models.Column.objects.filter(columnId=columnId)[0]
+        img = models.Image.objects.filter(imageId=column.imageId_id)[0].delete()
+        return HttpResponse(1)
+
+@csrf_exempt
+def colum_info(req):
+    '''
+    返回栏目信息，用于侧边栏，和加载图片
+    :param req: 
+    :return: 
+    '''
+    Columns = models.Column.objects.all()
+    list = []
+    for obj in Columns:
+        info = {"name": obj.name, "columnId": obj.columnId}
+        list.append(info)
+    return HttpResponse(json.dumps(list))
+
+@csrf_exempt
+def add_news_column(req):
+    '''
+    动态绑定添加新闻界面
+    :param req: 
+    :return: 
+    '''
+    columnId = req.GET["columnId"]
+    column = models.Column.objects.filter(columnId=columnId)[0]
+    return render(req, "admina/add_news.html", {"name": column.name, "columnId": column.columnId})
+
+@csrf_exempt
+def inspect_img(req):
+    imgs = models.Image.objects.all()
+    list = []
+    for obj in imgs:
+        info = {
+            "url": obj.url, "img": str(obj.img), "imageId": obj.imageId
+        }
+        list.append(info)
+    return HttpResponse(json.dumps(list))
+
+@csrf_exempt
+def save_picture(req):
+    img = req.FILES["image"]
+    image = savepciture(img)
+    return HttpResponse(1)

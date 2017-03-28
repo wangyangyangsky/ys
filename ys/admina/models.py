@@ -14,12 +14,15 @@ class Image(models.Model):
 #2、栏目表
 class Column(models.Model):
     columnId = models.AutoField(primary_key=True)
-    parentColum = models.CharField(max_length=50)
+    parentColum = models.CharField(max_length=50, null=True)
     sort = models.IntegerField()
     level = models.IntegerField()
     name = models.CharField(max_length=50)
     is_use = models.BooleanField(default=True)
     imageId = models.ForeignKey(Image, db_column="imageId")
+
+    class Meta:
+        ordering = ['sort']
 
 #3、部门
 class Department(models.Model):

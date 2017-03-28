@@ -23,7 +23,7 @@ body{font-family:Microsoft YaHei,Verdana,Arial,SimSun;color:#666;font-size:14px;
 .left_menu{float:left;width:300px;background:#32323a;height:100%;position:absolute;top:0;left:0;overflow:auto;border-left:0px solid #f6f6f6;}
 .left_menu ul li {width:310px; display:inline; }
 .left_menu ul li .list-item a{padding-left:35%;text-decoration:none;font-size:14px;color:#f5f5f5;line-height:30px;display:block;}
-.left_menu ul li .list-item span{padding-left:20%;text-decoration:none;font-size:14px;color:#f5f5f5;line-height:30px;display:block;}
+.left_menu ul li .list-item span{padding-left:35%;text-decoration:none;font-size:14px;color:#f5f5f5;line-height:30px;display:block;}
 .left_menu ul li a.noline { border-bottom:none; }
 .left_menu ul li a:hover{ color:#fff; }
 .left_menu ul li a.selected:hover { color:#fff; }

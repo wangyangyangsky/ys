@@ -29,7 +29,7 @@ $("input[name='submit']").click(function () {
         alert("请输入所属部门");
     }else{
         $("input[name='submit']").click(
-            $.post("/admin/create_admin/",{
+            $.post("create_admin",{
                 "name": $("input[name='name']").val(),
                 "username": $("input[name='username']").val(),
                 "password": $("input[name='password']").val(),
@@ -45,6 +45,7 @@ $("input[name='submit']").click(function () {
                     document.getElementsByName("name")[0].focus();
                 }else if(data == 1){
                     alert("创建成功");
+                    window.location.href = "check_admin";
                 }else{
                     alert(data);
                 }

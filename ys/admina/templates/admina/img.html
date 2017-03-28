@@ -21,36 +21,41 @@
                 </ul>
 		</div>
 		<div class="main">
-			<div style="width: 100%;height: 50px">
-                <a style="width:15%;padding-left: 50px">所属栏目：</a>
-                <select style="width:17%">
-                <option value="1">请选择</option>
-                </select>
-            </div>
-            <div style="width: 100%;height: 50px">
-                <a style="width:15%;padding-left: 50px">图片名称：</a>
-                <input type="text" style="width:17%;" />
-                <input type="submit" value="添加图片"/>
-            </div>
-            <div style="width: 100%;height: 200px;">
-                <a style="width:15%;padding-left: 50px">图片展示：</a>
-                <input type="text" style="width:25%;height: 200px" />
-            </div>
-            <div style="width: 100%;height: 50px;margin-top: 15px;">
-                <a style="width:15%;padding-left: 50px">是否启用：</a>
-                <input name="isUse" style="margin-left:20px" value="1" type="radio">
-                <b>启用</b>
-                <input name="isUse" style="margin-left:20px;" value="0" type="radio">
-                <b>禁用</b>
-            </div>
-            <div style="margin-left: 15%;">
-                <input value="返回" type="button">
-                <input value="添加" type="button"style="margin-left: 80px">
-            </div>
+            <form id="pictureForm" enctype="multipart/form-data" method="post">
+                <div style="width: 100%;height: 50px">
+                    <span style="width:15%;padding-left: 50px">所属栏目：</span>
+                    <select style="width:17%" name="select">
+                    <option value="0">请选择</option>
+                    </select>
+                </div>
+                <div style="width: 100%;height: 50px">
+                    <a style="width:15%;padding-left: 50px">上传图片：</a>
+                    <input type="file" name="image">
+                </div>
+                <div style="width: 100%;height: 200px;">
+                    <a style="width:15%;padding-left: 50px">图片展示：</a>
+                    <input type="text" style="width:25%;height: 200px" />
+                </div>
+                <div style="width: 100%;height: 50px;margin-top: 15px;">
+                    <!--<a style="width:15%;padding-left: 50px">是否启用：</a>-->
+                    <!--<input name="isUse" style="margin-left:20px" value="1" type="radio">-->
+                    <!--<b>启用</b>-->
+                    <!--<input name="isUse" style="margin-left:20px;" value="0" type="radio">-->
+                    <!--<b>禁用</b>-->
+                </div>
+                <div style="margin-left: 15%;">
+                    <input value="返回" type="button">
+                    <input value="添加" type="button"style="margin-left: 80px" name="submit">
+                </div>
+            </form>
 		</div>
 	</div>
 
 <div class="bottom"></div>
+<script type="text/javascript" src="/static/admina/login/js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="/static/admina/login/js/jquery.form.js"></script>
+<script type="text/javascript" src="/static/admina/js/include.js"></script>
+<script type="text/javascript" src="/static/admina/js/img.js"></script>
 <script>navList(12);</script>
 </body>
 </html>

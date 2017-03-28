@@ -1,3 +1,7 @@
+$(function () {
+    $("input[name='username']").val("");
+    $("input[name='password']").val("");
+});
 
 //获取input的所有id
 var user = document.getElementById("user");
@@ -119,7 +123,7 @@ $("input[type='button']").click(function () {
             }else if (data == 1){
                 alert("用户名密码错误")
             }else if(data == 2){
-                window.location.href = "/admin/index"
+                window.location.href = "index"
             }
         });
     }
