@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 """ys URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,8 +16,14 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.static import serve
+
+# from ys.settings import UPLOAD_ROOT
+from ys.settings import UPLOAD_ROOT
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
-    url(r'^admin/', include("admina.urls"))
+    url(r'^admin/', include("admina.urls")),
+    url(r'^$', include("webapp.urls")),
+    url(r'^picture/(?P<path>.*)$', serve, {'document_root': UPLOAD_ROOT, }),  # 项目静态文件配置路由
 ]

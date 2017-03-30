@@ -6,12 +6,16 @@ td{
     width: 100px;
 }
 
-.name, .is_use{
+.is_use{
     width: 100px;
 }
 
+.name{
+    width: 150px;
+}
+
 .department{
-    width: 400px;
+    width: 350px;
 }
 
 .username {

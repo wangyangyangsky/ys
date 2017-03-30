@@ -23,42 +23,49 @@
 						</ul>
 			</div>
 			<div class="main">
-				<div class="left_content">
-					<ul class="right_ul">
-						<li>栏目名称：</li>
-						<li>栏目级别：</li>
-						<li>栏目顺序：</li>
-						<li>是否启用：</li>
-						<li>上传图片：</li>
-					</ul>
-					<input type="button" value="返回" onclick="" class="right_button"/>
-				</div>
-				<div class="right_content">
-					<ul class="right_ul">
-						<li><input type="text" class="right_input"></li>
-						<li>
-							<select class="right_sel">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-
-							</select>
-						</li>
-						<li>
-							<input type="text" class="right_input"/>
-						</li>
-						<li>
-							启用：<input type="radio" name="right_checkbox" value="1"/>
-							禁用：<input type="radio" name="right_checkbox" value="0"/>
-						</li>
-						<li><input type="file" class="right_input"></li>
-					</ul>
-					<input type="button" value="添加" onclick="" class="left_button">
-				</div>
+				<form id="pictureForm" method="post" enctype="multipart/form-data">
+					<div class="left_content">
+						<ul class="right_ul">
+							<li>栏目名称：</li>
+							<li>栏目级别：</li>
+							<li>父级栏目：</li>
+							<li>栏目顺序：</li>
+							<li>是否启用：</li>
+							<li>上传图片：</li>
+						</ul>
+						<input type="button" value="返回" onclick="" class="right_button"/>
+					</div>
+					<div class="right_content">
+						<ul class="right_ul">
+							<li><input type="text" class="right_input" name="name"></li>
+							<li>
+								<select class="right_sel" name="level">
+									<option value="1" selected="selected">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</li>
+							<li><input type="text" class="right_input" name="parentColum"></li>
+							<li>
+								<input type="text" class="right_input" name="sort"/>
+							</li>
+							<li>
+								启用：<input type="radio" name="is_use" value="1"/>
+								禁用：<input type="radio" name="is_use" value="0"/>
+							</li>
+							<li><input type="file" class="right_input" name="image"></li>
+						</ul>
+						<input type="button" value="添加" onclick="" class="left_button" name="submit">
+					</div>
+				</form>
 			</div>
 		</div>
 
 <div class="bottom"></div>
+<script type="text/javascript" src="/static/admina/login/js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="/static/admina/login/js/jquery.form.js"></script>
+<script type="text/javascript" src="/static/admina/js/col_page1.js"></script>
+<script type="text/javascript" src="/static/admina/js/include.js"></script>
 <script>navList(12);</script>
 </body>
 </html>
