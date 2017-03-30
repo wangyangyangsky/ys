@@ -5,6 +5,7 @@
 <title>后台管理系统</title>
     <link type="text/css" rel="stylesheet" href="/static/admina/css/style.css" />
     <link type="text/css" rel="stylesheet" href="/static/admina/css/check_admin.css">
+    <link type="text/css" rel="stylesheet" href="/static/admina/css/loginDialog.css">
     <script type="text/javascript" src="/static/admina/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="/static/admina/js/menu.js"></script>
 </head>
@@ -40,6 +41,36 @@
             </div>
 		</div>
 	</div>
+
+    <div id="LoginBox">
+        <div class="row1">
+            修改信息<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
+        </div>
+        <div class="row">
+            <span style="margin-left: 15%">姓名:</span> <span class="inputBox">
+                <input type="text" id="username" />
+            </span>
+        </div>
+        <div class="row">
+            <span style="margin-left: 15%">密码:</span> <span class="inputBox">
+                <input type="password" id="password" />
+            </span>
+        </div>
+        <div class="row">
+            所属部门：<span class="inputBox">
+                <input type="text" id="department" />
+        </span>
+        </div>
+        <div class="row">
+            是否启用：<span>
+                <input type="radio" name="is_use">是
+                <input type="radio" name="is_use" style="margin-left: 20%;">否
+        </span>
+        </div>
+        <div class="row">
+            <a href="#" id="loginbtn">修改</a>
+        </div>
+    </div>
 
 <div class="bottom"></div>
 </body>

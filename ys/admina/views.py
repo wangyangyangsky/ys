@@ -132,16 +132,29 @@ def inspect_admin(req):
     :param req: 
     :return: 
     '''
-    Administrators = models.Administrators.objects.all()
-    list = []
-    for obj in Administrators:
-        department = models.Department.objects.filter(departmentId=obj.departmentId_id)
+    Identification = req.POST["Identification"]
+    if Identification == "1":
+        Administrators = models.Administrators.objects.all()
+        list = []
+        for obj in Administrators:
+            department = models.Department.objects.filter(departmentId=obj.departmentId_id)
+            infor = {
+                "name": obj.name, "department": department[0].name,
+                "username": obj.username, "password": obj.password, "is_use": obj.is_use
+            }
+            list.append(infor)
+        return HttpResponse(json.dumps(list))
+    if Identification == "2":
+        username = req.POST["username"]
+        Administrators = models.Administrators.objects.filter(username=username)[0]
+        department = models.Department.objects.filter(departmentId=Administrators.departmentId_id)
+        list = []
         infor = {
-            "name": obj.name, "department": department[0].name,
-            "username": obj.username, "password": obj.password, "is_use": obj.is_use
+            "name": Administrators.name, "department": department[0].name,
+            "username": Administrators.username, "password": Administrators.password, "is_use": Administrators.is_use
         }
         list.append(infor)
-    return HttpResponse(json.dumps(list))
+        return HttpResponse(list)
 
 @csrf_exempt
 def create_column(req):
