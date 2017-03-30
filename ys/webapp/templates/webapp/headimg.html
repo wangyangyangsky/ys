@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>headimg</title>
+    <style>
+        .head-img {
+            position: relative;
+            height:37%;
+        }
+        .head-imge{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #000;
+            z-index: 50;
+        }
+        .head-img-canvas{
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 30;
+            transition-duration: 6s;
+            transition-timing-function: ease-in-out;
+        }
+        .head-img-img{
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            width: 100%;
+            background-size: cover;
+            transition-duration: 3s;
+            transition-timing-function: ease-in-out;
+            z-index: 40;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-img">
+        <div class="head-imge">
+            <canvas class="head-img-canvas"></canvas>
+            <img class="head-img-img" src="images/img1.png">
+            <!--图片路径问题  不是每个页面都需要同一张图片-->
+        </div>
+    </div>
+</body>
+</html>

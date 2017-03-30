@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>headlist</title>
+    <style>
+        .nav{
+            position: relative;
+            font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+            /*box-shadow: rgb(35, 35, 35) 0px 0px 1px;*/
+            line-height: 1;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            z-index: 100;
+            padding-left: 0px;
+            margin-bottom: 0px;
+            list-style: none;
+            height: 10%;
+        }
+        .container{
+            width: 80%;
+            height: 80%;
+            margin-right: 10%;
+            margin-left: 10%;
+        }
+        .row {
+            width: 100%;
+            height: 100%;
+        }
+        .nav-logo{
+            width: 18%;
+            height: 100%;
+            float: left;
+        }
+        .nav-logo-logo{
+            position: relative;
+            background-image: url(images/logo.png);
+            height: 80%;
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            float: left;
+            margin: auto;
+        }
+        .nav-main{
+            width: 66%;
+            height: 100%;
+            float: left;
+            margin-left: 5%;
+        }
+        .nav-group{
+            width: 100%;
+            height: 100%;
+
+        }
+        .nav-item:nth-child(1) {
+            background-color: #4AB6C6;
+            box-shadow: 3px 3px 0px 2px rgb(204, 223, 227);
+            color: aliceblue;
+        }
+        .nav-item {
+            position: relative;
+            display: inline-block;
+            float: left;
+            transition: all 0.4s;
+            width: 12%;
+            height: 80%;
+            text-align: center;
+            margin-top: 1%;
+            padding-top: 3%;
+            margin-right: 2%;
+            font-size: 1.28em;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="row">
+
+                <div class="nav-logo">
+                    <div class="nav-logo-logo"></div>
+                </div>
+
+                <div class="nav-main">
+                    <div class="nav-group">
+                        <div class="nav-item">首页</div>
+                        <div class="nav-item"><a href="">中心动态</a></div>
+                        <div class="nav-item"><a href="">创新实验室</a></div>
+                        <div class="nav-item"><a href="">创新培养</a></div>
+                        <div class="nav-item"><a href="">学生社团</a></div>
+                        <div class="nav-item"><a href="">成功展示</a></div>
+                        <div class="nav-item"><a href="">下载中心</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
