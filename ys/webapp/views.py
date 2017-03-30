@@ -1,8 +1,3 @@
-from django.shortcuts import render, render_to_response
-
+from django.shortcuts import render
 
 # Create your views here.
-
-
-def index(req):
-    return render_to_response("webapp/index.html")

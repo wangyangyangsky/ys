@@ -24,6 +24,5 @@ from ys.settings import UPLOAD_ROOT
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^admin/', include("admina.urls")),
-    url(r'^$', include("webapp.urls")),
     url(r'^picture/(?P<path>.*)$', serve, {'document_root': UPLOAD_ROOT, }),  # 项目静态文件配置路由
 ]
